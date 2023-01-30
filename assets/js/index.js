@@ -24,6 +24,7 @@ window.oncontextmenu = function (event) {
   event.preventDefault();
   let div = document.createElement("div");
 
+
   lastContext ? lastContext.remove() : "null";
   div.className = "context";
   div.style.width = "300px";
@@ -36,7 +37,8 @@ window.oncontextmenu = function (event) {
   div.style.top = `${event.clientY}px`;
   div.style.left = `${event.clientX}px`;
   document.body.prepend(div);
-  lastContext = div;
+  lastCont ? lastCont.remove():"null";
+  lastContext = div; 
   let ul = document.createElement("ul")
   ul.style.listStyle = "none"
 
@@ -78,9 +80,9 @@ window.oncontextmenu = function (event) {
 
     lastCont = menu;
     document.body.append(menu);
-     div.oncontextmenu=function(){
+     document.body.oncontextmenu=function(){
       
-      menu.remove()="null";
+      lastCont.remove()="null";
      }
 
     input.onkeydown = function (e) {
@@ -93,13 +95,17 @@ window.oncontextmenu = function (event) {
     }
  
   }
-// };   window.oncontextmenu = function (even){
-//       even.preventDefault();
-//     menu.remove();
+}; 
 
-    }
+//  window.oncontextmenu = function (even){
+//       even.preventDefault();
+//     menu.remove(); }
+
 window.onclick = function () {
+ 
+  
   lastContext ? lastContext.remove() : "null";
+  
 };
 
 
