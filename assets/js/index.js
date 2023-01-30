@@ -1,21 +1,22 @@
 let lastContext;
 let remove;
+let lastCont;
 let arr = [
   "<i class='fa-solid fa-eye ' style='margin-right:20px;'></i>   Preview",
-  "<i class='fa-solid fa-up-down-left-right'style='margin-right:20px;'></i> Open with",
+  "<i class='fa-solid fa-up-down-left-right'style='margin-right:20px;'></i> Open with ",
   "<i class='fa-solid fa-user-plus'style='margin-right:20px;'></i> Share",
   "<i class='fa-solid fa-link' style='margin-right:20px;'></i>Get link",
   "<i class='fa-solid fa-plus'style='margin-right:20px;'></i> Add to workspace",
   "<i class='fa-regular fa-folder'style='margin-right:20px;'></i> Show file location",
   "<i class='fa-brands fa-google-drive'style='margin-right:20px;'></i> Add shortcut to Drive",
-  "<i class='fa-solid fa-folder-plus'style='margin-right:20px;'></i> Move to",
+  "<i class='fa-solid fa-folder-plus'style='margin-right:20px;'></i> Move to <hr>",
   "<i class='fa-solid fa-star'style='margin-right:20px;'></i> Add to Starred",
-  "<i class='fa-solid fa-pen'style='margin-right:20px;'></i> Rename",
+  "<i class='fa-solid fa-pen'style='margin-right:20px;'></i> Rename <hr>",
   "<i class='fa-solid fa-closed-captioning'style='margin-right:20px;'></i> View caption tracks",
   "<i class='fa-regular fa-clock'style='margin-right:20px;'></i> Manage versions",
   "<i class='fa-regular fa-copy'style='margin-right:20px;'></i> Make a copy",
   "<i class='fa-solid fa-circle-exclamation'style='margin-right:20px;'></i> Report  abuse",
-  "<i class='fa-solid fa-download'style='margin-right:20px;'></i> Download",
+  "<i class='fa-solid fa-download'style='margin-right:20px;'></i> Download <hr>",
   "<i class='fa-regular fa-trash-can'style='margin-right:20px;'></i> Move to trans",
   " <i class='fa-solid fa-thumbs-down'style='margin-right:20px;'></i>Not ahelpful suggestion"
 ];
@@ -53,7 +54,7 @@ window.oncontextmenu = function (event) {
     li.style.width = "200px";
 
   };
-  let lastCont;
+  
   event.preventDefault();
   ul.firstChild.onclick = function () {
     let menu = document.createElement("div");
@@ -77,7 +78,10 @@ window.oncontextmenu = function (event) {
 
     lastCont = menu;
     document.body.append(menu);
-
+     div.oncontextmenu=function(){
+      
+      menu.remove()="null";
+     }
 
     input.onkeydown = function (e) {
       if (e.keyCode == 13) {
@@ -87,19 +91,13 @@ window.oncontextmenu = function (event) {
         menu.remove() = "null";
       };
     }
-    // window.oncontextmenu = function (even){
-    //   event.preventDefault();
-    // document.body.remove()="null";
-
-    // }
-
+ 
   }
+// };   window.oncontextmenu = function (even){
+//       even.preventDefault();
+//     menu.remove();
 
-
-
-};
-
-
+    }
 window.onclick = function () {
   lastContext ? lastContext.remove() : "null";
 };
